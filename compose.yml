@@ -14,9 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backup:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/m4tt72/docker-pg-restic-backup:main
     hostname: pg-backup
     environment:
       - TZ=Europe/Brussels

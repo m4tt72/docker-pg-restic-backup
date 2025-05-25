@@ -37,6 +37,7 @@ docker run -d \
   -e DB_USER=your-db-user \
   -e DB_PASS=your-db-password \
   -e DB_NAME=your-db-name \
+  -e RESTIC_REPOSITORY=/repo \
   -e RESTIC_PASSWORD=your-restic-password \
   -v ./repo:/repo \
   m4tt72/docker-pg-restic-backup
@@ -54,7 +55,7 @@ docker run -d \
 - `DB_NAME`: Database name to backup
 
 #### Restic Configuration
-- `RESTIC_REPOSITORY`: Path to Restic repository (default: /repo)
+- `RESTIC_REPOSITORY`: Path to Restic repository
 - `RESTIC_PASSWORD`: Password for Restic repository
 - `RESTIC_BACKUP_EXTRA_ARGS`: Additional arguments for the `restic backup` command (see [Restic Backup Documentation](https://restic.readthedocs.io/en/latest/040_backup.html))
 - `RESTIC_FORGET_ARGS`: Arguments for the `restic forget` command (see [Restic Forget Documentation](https://restic.readthedocs.io/en/latest/060_forget.html))
@@ -110,13 +111,6 @@ The backup process consists of the following steps:
 ## Backup Schedule
 
 By default, the backup runs every 15 minutes. The schedule can be modified by mounting a custom cron file:
-
-```bash
-docker run -d \
-  # ... other options ...
-  -v ./custom-cron:/config/crontabs/abc \
-  m4tt72/docker-pg-restic-backup
-```
 
 ## Logging
 
