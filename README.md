@@ -1,5 +1,9 @@
 # PostgreSQL Backup with Restic
 
+<div align="center">
+  <img src="assets/project-banner.png" alt="PostgreSQL Backup with Restic" width="100%">
+</div>
+
 This project provides an automated solution for backing up PostgreSQL databases using Restic, a modern and efficient backup program. The backup process is containerized using Docker, making it easy to deploy and maintain.
 
 ## Features
